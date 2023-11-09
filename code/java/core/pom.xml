@@ -2,13 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>net.oauth</groupId>
+    <groupId>edu.kcg.net.oauth.core</groupId>
     <artifactId>oauth-parent</artifactId>
-    <version>20100601</version>
+    <version>20100601-jakarta</version>
   </parent> 
-  <groupId>net.oauth.core</groupId>
+  <groupId>edu.kcg.net.oauth.core</groupId>
   <artifactId>oauth-core-parent</artifactId>
-  <version>20100601</version>
+  <version>20100601-jakarta</version>
   <packaging>pom</packaging>
   <name>OAuth Core: Parent POM</name>
   <modules>
