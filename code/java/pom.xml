@@ -6,7 +6,7 @@
   <url>http://oauth.net/code/</url>
 
   <!-- override these ones -->
-  <groupId>net.oauth.core</groupId>
+  <groupId>net.oauth</groupId>
   <artifactId>oauth-parent</artifactId>
   <version>20100601-jakarta</version>
   <packaging>pom</packaging>
