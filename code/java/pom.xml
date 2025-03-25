@@ -24,6 +24,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.14.0</version>
           <configuration>
             <source>21</source>
             <target>21</target>
@@ -32,6 +33,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-eclipse-plugin</artifactId>
+          <version>2.10</version>
           <configuration>
             <outputDirectory>${project.build.directory}/eclipse-bin</outputDirectory>
           </configuration>
@@ -40,6 +42,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
+          <version>3.3.1</version>
           <executions>
             <execution>
               <phase>package</phase>
