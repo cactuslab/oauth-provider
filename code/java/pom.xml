@@ -54,11 +54,6 @@
         </plugin>
       </plugins>
   </build>
-  <scm>
-    <connection>scm:svn:http://oauth.googlecode.com/svn/code/java/</connection>
-    <developerConnection>scm:svn:https://oauth.googlecode.com/svn/code/java/</developerConnection>
-    <url>http://oauth.googlecode.com/svn/code/java/</url>
-  </scm>
   <dependencies>
     <dependency>
       <artifactId>junit</artifactId>
@@ -75,25 +70,4 @@
       </plugin>
     </plugins>
   </reporting>
-  <repositories>
-    <repository>
-      <id>oauth-local</id>
-      <name>Local OAuth Repository</name>
-      <url>file:../maven</url>
-    </repository>
-    <repository>
-      <id>oauth</id>
-      <name>OAuth Repository</name>
-      <url>http://oauth.googlecode.com/svn/code/maven</url>
-    </repository>
-  </repositories>
-  <distributionManagement>
-    <repository>
-      <id>oauth-local</id>
-      <name>Local OAuth Repository</name>
-      <url>file:../maven</url>
-      <uniqueVersion>true</uniqueVersion>
-    </repository>
-    <downloadUrl>http://oauth.googlecode.com/svn/code/maven</downloadUrl>
-  </distributionManagement>
 </project>
