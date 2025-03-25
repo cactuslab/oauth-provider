@@ -14,8 +14,8 @@
 
   <modules>
     <module>core</module>
-    <module>core-old</module>
-    <module>example</module>
+    <!-- <module>core-old</module> -->
+    <!-- <module>example</module> -->
   </modules>
 
   <build>
