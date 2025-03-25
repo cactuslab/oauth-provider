@@ -16,8 +16,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <optimize>true</optimize>
-          <source>1.5</source>
-          <target>1.5</target>
+          <source>21</source>
+          <target>21</target>
         </configuration>
         <inherited>true</inherited>
       </plugin>
