@@ -4,7 +4,7 @@
   <parent>
     <groupId>net.oauth.core</groupId>
     <artifactId>oauth-core-parent</artifactId>
-    <version>20100601</version>
+    <version>20100601-jakarta</version>
   </parent>
   <artifactId>oauth-httpclient4</artifactId>
   <version>20100601</version>
@@ -24,7 +24,7 @@
     <dependency>
       <groupId>net.oauth.core</groupId>
       <artifactId>oauth-provider</artifactId>
-      <version>20100601</version>
+      <version>20100601-jakarta</version>
       <scope>test</scope>
     </dependency>
     <dependency>

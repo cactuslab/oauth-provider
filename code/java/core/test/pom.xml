@@ -4,10 +4,10 @@
   <parent>
     <groupId>net.oauth.core</groupId>
     <artifactId>oauth-core-parent</artifactId>
-    <version>20100601</version>
+    <version>20100601-jakarta</version>
   </parent>
   <artifactId>oauth-test</artifactId>
-  <version>20100601</version>
+  <version>20100601-jakarta</version>
   <packaging>jar</packaging>
   <name>OAuth Core: Test</name>
   <dependencies>
@@ -38,7 +38,7 @@
     <dependency>
       <groupId>net.oauth.core</groupId>
       <artifactId>oauth-provider</artifactId>
-      <version>20100601</version>
+      <version>20100601-jakarta</version>
       <scope>test</scope>
     </dependency>
     <dependency>

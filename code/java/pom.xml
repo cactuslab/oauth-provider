@@ -6,7 +6,7 @@
   <url>http://oauth.net/code/</url>
 
   <!-- override these ones -->
-  <groupId>edu.kcg.net.oauth.core</groupId>
+  <groupId>net.oauth.core</groupId>
   <artifactId>oauth-parent</artifactId>
   <version>20100601-jakarta</version>
   <packaging>pom</packaging>
