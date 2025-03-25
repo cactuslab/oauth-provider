@@ -21,7 +21,7 @@ import net.oauth.client.ProtectedResource;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Arrays;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import junit.framework.TestCase;
 import net.oauth.client.httpclient4.OAuthCredentials;
 import net.oauth.client.httpclient4.OAuthSchemeFactory;
@@ -34,9 +34,9 @@ import org.apache.http.client.protocol.ClientContext;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
-import org.mortbay.jetty.Server;
-import org.mortbay.jetty.servlet.Context;
-import org.mortbay.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
 
 public class OAuthSchemeTest extends TestCase {
 
@@ -84,7 +84,7 @@ public class OAuthSchemeTest extends TestCase {
             s.close();
         }
         server = new Server(port);
-        Context servletContext = new Context(server, "/", Context.SESSIONS);
+        ServletContextHandler servletContext = new ServletContextHandler(server, "/", ServletContextHandler.SESSIONS);
         servletContext.addServlet(new ServletHolder(new ProtectedResource()), "/Resource/*");
         server.start();
         context = new BasicHttpContext();

@@ -37,11 +37,13 @@ import net.oauth.http.HttpMessage;
 import net.oauth.http.HttpMessageDecoder;
 import net.oauth.http.HttpResponseMessage;
 import net.oauth.signature.Echo;
-import org.mortbay.jetty.Server;
-import org.mortbay.jetty.servlet.Context;
-import org.mortbay.jetty.servlet.ServletHolder;
-import org.mortbay.servlet.GzipFilter;
-import org.mortbay.thread.BoundedThreadPool;
+
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.ServerConnector;
+import org.eclipse.jetty.server.handler.gzip.GzipHandler;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.util.thread.QueuedThreadPool;
 
 public class OAuthClientTest extends TestCase {
 
@@ -83,7 +85,7 @@ public class OAuthClientTest extends TestCase {
                                 "text/OAuthClientTest; charset=\"UTF-8\"", utf8),
                         "PUT\n" + parametersForm + "\n"
                                 + utf8.length + "\n" + data,
-                        "text/OAuthClientTest; charset=UTF-8" },
+                        "text/OAuthClientTest;charset=utf-8" },
                 {
                         new MessageWithBody("PUT", echo, parameters,
                                 "application/octet-stream", utf8),
@@ -138,7 +140,7 @@ public class OAuthClientTest extends TestCase {
     public void testAccess() throws Exception {
         final String echo = "http://localhost:" + port + "/Echo";
         final List<OAuth.Parameter> parameters = OAuth.newList("n", "v");
-        final String contentType = "text/fred; charset=" + OAuth.ENCODING;
+        final String contentType = "text/fred;charset=" + OAuth.ENCODING;
         final byte[] content = "1234".getBytes(OAuth.ENCODING);
         for (OAuthClient client : clients) {
             String id = client.getHttpClient().toString();
@@ -267,13 +269,22 @@ public class OAuthClientTest extends TestCase {
             port = s.getLocalPort();
             s.close();
         }
-        server = new Server(port);
-        Context context = new Context(server, "/", Context.SESSIONS);
-        context.addFilter(GzipFilter.class, "/*", 1);
+
+        QueuedThreadPool pool = new QueuedThreadPool(4);
+
+        server = new Server(pool);
+
+        ServerConnector connector = new ServerConnector(server);
+        connector.setPort(port);
+        server.addConnector(connector);
+
+        ServletContextHandler context = new ServletContextHandler(server, "/", ServletContextHandler.SESSIONS);
+
+        GzipHandler gzipHandler = new GzipHandler();
+        gzipHandler.setHandler(context);
+        server.setHandler(gzipHandler);
+
         context.addServlet(new ServletHolder(new Echo()), "/Echo/*");
-        BoundedThreadPool pool = new BoundedThreadPool();
-        pool.setMaxThreads(4);
-        server.setThreadPool(pool);
         server.start();
     }
 

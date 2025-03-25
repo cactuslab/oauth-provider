@@ -38,7 +38,7 @@ public class OAuth {
     public static final String VERSION_1_0 = "1.0";
 
     /** The encoding used to represent characters as bytes. */
-    public static final String ENCODING = "UTF-8";
+    public static final String ENCODING = "utf-8";
 
     /** The MIME type for a sequence of OAuth parameters. */
     public static final String FORM_ENCODED = "application/x-www-form-urlencoded";
